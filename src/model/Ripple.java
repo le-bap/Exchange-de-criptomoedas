@@ -7,6 +7,10 @@ package model;
  */
 public class Ripple extends Moedas implements Tarifacao{
 
+    public Ripple(double taxaCompra, double taxaVenda) {
+        super(taxaCompra, taxaVenda);
+    }
+
     @Override
     public double cotarCopra() {
         throw new UnsupportedOperationException("Not supported yet."); 
