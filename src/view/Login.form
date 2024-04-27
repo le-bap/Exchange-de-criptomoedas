@@ -32,9 +32,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtLogin" min="-2" pref="297" max="-2" attributes="0"/>
+                          <Component id="txtCpf" min="-2" pref="297" max="-2" attributes="0"/>
                           <Component id="lblLogin" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtLogin2" alignment="0" min="-2" pref="297" max="-2" attributes="0"/>
+                          <Component id="txtSenha" alignment="0" min="-2" pref="297" max="-2" attributes="0"/>
                           <Component id="lblLSenha" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="btEntrar" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -56,11 +56,11 @@
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Component id="lblLogin" min="-2" pref="22" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtLogin" min="-2" pref="33" max="-2" attributes="0"/>
+              <Component id="txtCpf" min="-2" pref="33" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="lblLSenha" min="-2" pref="22" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtLogin2" min="-2" pref="33" max="-2" attributes="0"/>
+              <Component id="txtSenha" min="-2" pref="33" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Component id="btEntrar" min="-2" pref="34" max="-2" attributes="0"/>
               <EmptySpace pref="47" max="32767" attributes="0"/>
@@ -77,7 +77,7 @@
         <Property name="text" type="java.lang.String" value="Seja bem vindo, investidor!"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtLogin">
+    <Component class="javax.swing.JTextField" name="txtCpf">
     </Component>
     <Component class="javax.swing.JLabel" name="lblLogin">
       <Properties>
@@ -90,7 +90,10 @@
         <Property name="text" type="java.lang.String" value="CPF"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtLogin2">
+    <Component class="javax.swing.JTextField" name="txtSenha">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSenhaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblLSenha">
       <Properties>
@@ -107,6 +110,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Entrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btEntrarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
