@@ -7,8 +7,8 @@ package model;
  */
 public class Ethereum extends Moedas implements Tarifacao{
 
-    public Ethereum(double taxaCompra, double taxaVenda) {
-        super(taxaCompra, taxaVenda);
+    public Ethereum(double taxaCompra, double taxaVenda, double saldo) {
+        super(taxaCompra, taxaVenda, saldo);
     }
 
     @Override

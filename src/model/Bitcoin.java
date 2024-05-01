@@ -7,8 +7,8 @@ package model;
  */
 public class Bitcoin extends Moedas implements Tarifacao{
 
-    public Bitcoin(double taxaCompra, double taxaVenda) {
-        super(taxaCompra, taxaVenda);
+    public Bitcoin(double taxaCompra, double taxaVenda, double saldo) {
+        super(taxaCompra, taxaVenda, saldo);
     }
 
     @Override

@@ -6,10 +6,49 @@ package model;
  * @author uniflbaptistella
  */
 public class Carteira {
+    private Bitcoin bitcoin;
+    private Ethereum ethereum;
+    private Ripple ripple;
+    private Real real;
+    
     public Carteira(){
-        Bitcoin bitcoin = new Bitcoin(0.02, 0.03);
-        Ethereum ethereum = new Ethereum(0.01, 0.02);
-        Ripple ripple = new Ripple(0.01, 0.01);
-        Real real = new Real(0, 0);
+        bitcoin = new Bitcoin(0.02, 0.03, 0);
+        ethereum = new Ethereum(0.01, 0.02, 0);
+        ripple = new Ripple(0.01, 0.01, 0);
+        real = new Real(0, 0, 0);
     }
+
+    public Bitcoin getBitcoin() {
+        return bitcoin;
+    }
+
+    public void setBitcoin(Bitcoin bitcoin) {
+        this.bitcoin = bitcoin;
+    }
+
+    public Ethereum getEthereum() {
+        return ethereum;
+    }
+
+    public void setEthereum(Ethereum ethereum) {
+        this.ethereum = ethereum;
+    }
+
+    public Ripple getRipple() {
+        return ripple;
+    }
+
+    public void setRipple(Ripple ripple) {
+        this.ripple = ripple;
+    }
+
+    public Real getReal() {
+        return real;
+    }
+
+    public void setReal(Real real) {
+        this.real = real;
+    }
+    
+    
 }

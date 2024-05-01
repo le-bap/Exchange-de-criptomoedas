@@ -9,21 +9,14 @@ import model.Investidor;
  * @author uniflbaptistella
  */
 public class ConsultarSaldo extends javax.swing.JFrame {
-    private Investidor investidor;
     
-    public ConsultarSaldo() {
+    public ConsultarSaldo(Investidor investidor) {
         initComponents();
-        control = new ControllerConsultarSaldo(this, investidor);
+        control = new ControllerConsultarSaldo(this);
+        control.consulta(investidor);
     }
 
-    public Investidor getInvestidor() {
-        return investidor;
-    }
-
-    public void setInvestidor(Investidor investidor) {
-        this.investidor = investidor;
-    }
-
+   
     public ControllerConsultarSaldo getControl() {
         return control;
     }
@@ -80,8 +73,6 @@ public class ConsultarSaldo extends javax.swing.JFrame {
         this.lblRipple = lblRipple;
     }
     
-    
-
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -93,6 +84,10 @@ public class ConsultarSaldo extends javax.swing.JFrame {
         lblBitcoins = new javax.swing.JLabel();
         lblEthereum = new javax.swing.JLabel();
         lblRipple = new javax.swing.JLabel();
+        bitcoin = new javax.swing.JLabel();
+        reais = new javax.swing.JLabel();
+        ethereum = new javax.swing.JLabel();
+        ripple = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,45 +101,77 @@ public class ConsultarSaldo extends javax.swing.JFrame {
         lblReais.setText("Reais:");
 
         lblBitcoins.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblBitcoins.setText("Bitcoins");
+        lblBitcoins.setText("Bitcoins:");
 
         lblEthereum.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblEthereum.setText("Ethereum");
+        lblEthereum.setText("Ethereum:");
 
         lblRipple.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblRipple.setText("Ripple");
+        lblRipple.setText("Ripple:");
+
+        bitcoin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bitcoin.setText("Bitcoins:");
+
+        reais.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        reais.setText("Reais:");
+
+        ethereum.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ethereum.setText("Ethereum:");
+
+        ripple.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ripple.setText("Ripple:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblRipple, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEthereum, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblReais, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblBitcoins, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(92, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(bitcoin, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(reais, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ripple, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ethereum, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblRipple, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEthereum, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblReais, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblBitcoins, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(48, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(lblReais)
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblReais)
+                    .addComponent(reais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(lblBitcoins)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblBitcoins)
+                    .addComponent(bitcoin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblEthereum)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEthereum)
+                    .addComponent(ethereum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(lblRipple)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRipple)
+                    .addComponent(ripple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -186,11 +213,15 @@ public class ConsultarSaldo extends javax.swing.JFrame {
 //    }
     private ControllerConsultarSaldo control;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bitcoin;
+    private javax.swing.JLabel ethereum;
     private javax.swing.JLabel lblBitcoins;
     private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblEthereum;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblReais;
     private javax.swing.JLabel lblRipple;
+    private javax.swing.JLabel reais;
+    private javax.swing.JLabel ripple;
     // End of variables declaration//GEN-END:variables
 }

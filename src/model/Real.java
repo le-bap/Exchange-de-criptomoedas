@@ -7,8 +7,8 @@ package model;
  */
 public class Real extends Moedas implements Tarifacao{
 
-    public Real(double taxaCompra, double taxaVenda) {
-        super(taxaCompra, taxaVenda);
+    public Real(double taxaCompra, double taxaVenda, double saldo) {
+        super(taxaCompra, taxaVenda, saldo);
     }
 
 

@@ -39,4 +39,14 @@ public class UsuarioDAO {
         ResultSet resul = statement.getResultSet();
         return resul;
     }
+    
+    public ResultSet listar(Investidor investidor) throws SQLException{
+        
+        String sql = "select * from public.usuario where cpf = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, investidor.getCpf());
+        statement.execute();
+        ResultSet resul = statement.getResultSet();
+        return resul;
+    }
 }

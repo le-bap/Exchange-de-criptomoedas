@@ -34,10 +34,8 @@ public class ControllerLogin {
             if (res.next()){
                 JOptionPane.showMessageDialog(view, "Login realiado!");
                 String nome = res.getString("nome");
-                String cpf = res.getString("cpf");
-                String senha = res.getString("senha");
                 
-                Menu menu = new Menu( new Investidor(nome, cpf, senha));
+                Menu menu = new Menu( new Investidor(nome, null, null));
                 menu.setVisible(true);
                 view.setVisible(false);
                 

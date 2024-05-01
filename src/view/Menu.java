@@ -12,9 +12,7 @@ import model.Investidor;
  */
 public class Menu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Menu
-     */
+ 
     public Menu(Investidor invest) {
         initComponents();
         lblNome.setText(invest.getNome());
@@ -265,7 +263,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btAtualizarActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btSairActionPerformed
 
     /**

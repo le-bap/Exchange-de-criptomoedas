@@ -23,36 +23,66 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblRipple" min="-2" pref="83" max="-2" attributes="0"/>
-                  <Component id="lblEthereum" min="-2" pref="83" max="-2" attributes="0"/>
-                  <Component id="lblNome" min="-2" pref="337" max="-2" attributes="0"/>
-                  <Component id="lblCpf" min="-2" pref="324" max="-2" attributes="0"/>
-                  <Component id="lblReais" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
-                  <Component id="lblBitcoins" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblCpf" min="-2" pref="324" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="bitcoin" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="reais" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="ripple" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="ethereum" min="-2" pref="76" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblRipple" min="-2" pref="83" max="-2" attributes="0"/>
+                                  <Component id="lblEthereum" min="-2" pref="83" max="-2" attributes="0"/>
+                                  <Component id="lblReais" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
+                                  <Component id="lblBitcoins" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="lblNome" alignment="0" min="-2" pref="337" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="48" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="92" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="lblNome" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblCpf" min="-2" pref="27" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-              <Component id="lblReais" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblReais" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="reais" alignment="3" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="lblBitcoins" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblBitcoins" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bitcoin" alignment="3" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="lblEthereum" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblEthereum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ethereum" alignment="3" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="lblRipple" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="81" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblRipple" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ripple" alignment="3" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -87,7 +117,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Bitcoins"/>
+        <Property name="text" type="java.lang.String" value="Bitcoins:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblEthereum">
@@ -95,7 +125,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ethereum"/>
+        <Property name="text" type="java.lang.String" value="Ethereum:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblRipple">
@@ -103,7 +133,39 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ripple"/>
+        <Property name="text" type="java.lang.String" value="Ripple:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="bitcoin">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Bitcoins:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="reais">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Reais:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ethereum">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ethereum:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ripple">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ripple:"/>
       </Properties>
     </Component>
   </SubComponents>
