@@ -31,21 +31,21 @@ public class ControllerConsultarSaldo {
             if (res.next()){
                 String nome = res.getString("nome");
                 String cpf = res.getString("cpf");
-                double bitcoin = res.getDouble("bitcoins");
+                double bitcoin = res.getDouble("bitcoin");
                 double ethereum = res.getDouble("ethereum");
-                double real = res.getDouble("real");
+                double real = res.getDouble("reais");
                 double ripple = res.getDouble("ripple");
 
                 view.getLblNome().setText(nome);
                 view.getLblCpf().setText(cpf);
-                view.getLblReais().setText(String.valueOf(bitcoin));
-                view.getLblBitcoins().setText(String.valueOf(ethereum));
-                view.getLblEthereum().setText(String.valueOf(real));
+                view.getLblReais().setText(String.valueOf(real));
+                view.getLblBitcoins().setText(String.valueOf(bitcoin));
+                view.getLblEthereum().setText(String.valueOf(ethereum));
                 view.getLblRipple().setText(String.valueOf(ripple));
             }
         }
         catch(SQLException e){
-            JOptionPane.showMessageDialog(view, "Erro de conexao");
+            JOptionPane.showMessageDialog(view, "Erro de conexão");
         }
     
     }
