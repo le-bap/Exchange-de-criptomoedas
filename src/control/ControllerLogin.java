@@ -32,10 +32,11 @@ public class ControllerLogin {
             UsuarioDAO dao = new UsuarioDAO(conn);
             ResultSet res = dao.consultar(investidor);
             if (res.next()){
-                JOptionPane.showMessageDialog(view, "Login realiado!");
+                JOptionPane.showMessageDialog(view, "Login realizado!");
                 String nome = res.getString("nome");
-                
-                Menu menu = new Menu( new Investidor(nome, null, null));
+                String cpf = res.getString("cpf");
+                String senha = res.getString("senha");
+                Menu menu = new Menu( new Investidor(nome, cpf, senha));
                 menu.setVisible(true);
                 view.setVisible(false);
                 

@@ -40,6 +40,17 @@ public class UsuarioDAO {
         return resul;
     }
     
+    public ResultSet acharInvestidor(Investidor investidor) throws SQLException{
+        
+        String sql = "select * from usuario where senha = ? and cpf = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, investidor.getSenha());
+        statement.setString(2, investidor.getCpf());
+        statement.execute();
+        ResultSet resul = statement.getResultSet();
+        return resul;
+    }
+    
     public ResultSet listar(Investidor investidor) throws SQLException{
         
         String sql = "select * from public.usuario where cpf = ?";
@@ -48,5 +59,15 @@ public class UsuarioDAO {
         statement.execute();
         ResultSet resul = statement.getResultSet();
         return resul;
+    }
+    
+   public void atualizar(Investidor investidor, double valor) throws SQLException {
+    String sql = "update usuario set reais = ? where senha = ?";
+    
+    PreparedStatement statement = conn.prepareStatement(sql);
+    statement.setString(1, String.valueOf(valor));
+    statement.setString(2, investidor.getSenha());
+    statement.execute();
+    conn.close();
     }
 }

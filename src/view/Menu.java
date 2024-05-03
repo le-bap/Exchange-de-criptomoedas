@@ -11,12 +11,13 @@ import model.Investidor;
  * @author uniflbaptistella
  */
 public class Menu extends javax.swing.JFrame {
-
+    private Investidor investidor; 
  
-    public Menu(Investidor invest) {
+    public Menu(Investidor investidor) {
         initComponents();
-        lblNome.setText(invest.getNome());
-        control = new ControllerMenu(this);
+        this.investidor = investidor;
+        lblNome.setText(investidor.getNome());
+        control = new ControllerMenu(this, investidor);
     }
 
     public JButton getBtAtualizar() {
@@ -243,7 +244,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btExtratoActionPerformed
 
     private void btDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDepositarActionPerformed
-        // TODO add your handling code here:
+        control.depositar();
     }//GEN-LAST:event_btDepositarActionPerformed
 
     private void btSacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSacarActionPerformed
