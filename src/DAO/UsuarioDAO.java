@@ -29,17 +29,6 @@ public class UsuarioDAO {
         return resul;
     }
     
-    public ResultSet verificarSenha(Investidor investidor) throws SQLException{
-        
-        String sql = "select * from usuario where senha = ?";
-        PreparedStatement statement = conn.prepareStatement(sql);
-        // corrigindo problema de injeção de sql
-        statement.setString(1, investidor.getSenha());
-        statement.execute();
-        ResultSet resul = statement.getResultSet();
-        return resul;
-    }
-    
     public ResultSet acharInvestidor(Investidor investidor) throws SQLException{
         
         String sql = "select * from usuario where senha = ? and cpf = ?";

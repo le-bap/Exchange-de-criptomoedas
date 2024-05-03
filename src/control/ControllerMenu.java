@@ -10,6 +10,7 @@ import model.Investidor;
 import view.ConsultarSaldo;
 import view.Depositar;
 import view.Menu;
+import view.Sacar;
 
 /**
  *
@@ -33,20 +34,24 @@ public class ControllerMenu {
             try{
                 Connection conn = conexao.getConnection();
                 UsuarioDAO dao = new UsuarioDAO(conn);
-                ResultSet res = dao.verificarSenha(investidor);
+                ResultSet res = dao.consultar(investidor);
+                
                 if (res.next()){
-                    JOptionPane.showMessageDialog(null, "Senha confirmada!");
-                    
-                    String nome = res.getString("nome");
-                    String cpf = res.getString("cpf");
-                    
-                    ConsultarSaldo view = new ConsultarSaldo(new Investidor(nome, cpf, null));
-                    view.setVisible(true);
-                    
-                } else {
-                    JOptionPane.showMessageDialog(null, "Senha incorreta.");
-                }
-            } catch(SQLException e) {
+                    if(senha.equals(res.getString("senha"))){
+                        JOptionPane.showMessageDialog(null, "Senha confirmada!");
+
+                        String nome = res.getString("nome");
+                        String cpf = res.getString("cpf");
+
+                        ConsultarSaldo view = new ConsultarSaldo(new Investidor(nome, cpf, null));
+                        view.setVisible(true);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Senha incorreta.");
+                    }
+                }    
+               
+            }catch(SQLException e) {
                 JOptionPane.showMessageDialog(null, "Erro de conexão");
             }
         } 
@@ -61,15 +66,44 @@ public class ControllerMenu {
             try{
                 Connection conn = conexao.getConnection();
                 UsuarioDAO dao = new UsuarioDAO(conn);
-                ResultSet res = dao.verificarSenha(investidor);
+                ResultSet res = dao.consultar(investidor);
                 if (res.next()){
-                    JOptionPane.showMessageDialog(null, "Senha confirmada!");
-                    
-                    Depositar d = new Depositar(investidor);
-                    d.setVisible(true);
-                    
-                } else {
-                    JOptionPane.showMessageDialog(null, "Senha incorreta.");
+                    if(senha.equals(res.getString("senha"))){
+                        JOptionPane.showMessageDialog(null, "Senha confirmada!");
+
+                        Depositar d = new Depositar(investidor);
+                        d.setVisible(true);
+                        
+                     }else {
+                        JOptionPane.showMessageDialog(null, "Senha incorreta.");
+                    } 
+                }
+            } catch(SQLException e) {
+                JOptionPane.showMessageDialog(null, "Erro de conexão");
+            }
+        } 
+    }
+    
+    
+    public void sacar(){
+        String senha = JOptionPane.showInputDialog(null, "Para prossegui digite sua senha novamente:",
+                "Verificar Senha", JOptionPane.PLAIN_MESSAGE);
+
+        if (senha != null) {
+            Conexao conexao = new Conexao();
+            try{
+                Connection conn = conexao.getConnection();
+                UsuarioDAO dao = new UsuarioDAO(conn);
+                ResultSet res = dao.consultar(investidor);
+                if (res.next()){
+                    if(senha.equals(res.getString("senha"))){
+                        JOptionPane.showMessageDialog(null, "Senha confirmada!");
+
+                        Sacar s = new Sacar(investidor);
+                        s.setVisible(true);
+                    }else {
+                        JOptionPane.showMessageDialog(null, "Senha incorreta.");
+                    }
                 }
             } catch(SQLException e) {
                 JOptionPane.showMessageDialog(null, "Erro de conexão");
