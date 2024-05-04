@@ -41,7 +41,7 @@ public class ControllerSacar {
                 }
                 else{
                     double saldo = reais - saque;
-                    dao.atualizar(investidor,saldo);
+                    dao.atualizarReais(investidor,saldo);
                     view.getLblSaldoDepois().setText(String.valueOf(saldo));
                 }
             }

@@ -12,12 +12,12 @@ public class Ripple extends Moedas implements Tarifacao{
     }
 
     @Override
-    public double cotarCopra() {
+    public double cotarCompra(double valor) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     @Override
-    public double cotarVenda() {
+    public double cotarVenda(double valor) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
     

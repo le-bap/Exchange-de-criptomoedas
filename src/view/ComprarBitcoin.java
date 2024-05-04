@@ -2,6 +2,9 @@
 package view;
 
 import control.ControllerComprarBitcoin;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 import model.Investidor;
 
 /**
@@ -17,6 +20,55 @@ public class ComprarBitcoin extends javax.swing.JFrame {
         control = new ControllerComprarBitcoin(this, investidor);
     }
 
+    public Investidor getInvestidor() {
+        return investidor;
+    }
+
+    public void setInvestidor(Investidor investidor) {
+        this.investidor = investidor;
+    }
+
+    public ControllerComprarBitcoin getControl() {
+        return control;
+    }
+
+    public void setControl(ControllerComprarBitcoin control) {
+        this.control = control;
+    }
+
+    public JButton getBtComprar() {
+        return btComprar;
+    }
+
+    public void setBtComprar(JButton btComprar) {
+        this.btComprar = btComprar;
+    }
+
+    public JLabel getLblTexto() {
+        return lblTexto;
+    }
+
+    public void setLblTexto(JLabel lblTexto) {
+        this.lblTexto = lblTexto;
+    }
+
+    public JLabel getLblTitulo() {
+        return lblTitulo;
+    }
+
+    public void setLblTitulo(JLabel lblTitulo) {
+        this.lblTitulo = lblTitulo;
+    }
+
+    public JTextField getTxtValor() {
+        return txtValor;
+    }
+
+    public void setTxtValor(JTextField txtValor) {
+        this.txtValor = txtValor;
+    }
+
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -76,7 +128,7 @@ public class ComprarBitcoin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btComprarActionPerformed
-        
+        control.comprar(investidor);
     }//GEN-LAST:event_btComprarActionPerformed
 
     /**

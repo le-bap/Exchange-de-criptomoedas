@@ -5,6 +5,6 @@ package model;
  * @author uniflbaptistella
  */
 public interface Tarifacao {
-    public double cotarCopra();
-    public double cotarVenda();
+    public double cotarCompra(double valor);
+    public double cotarVenda(double valor);
 }

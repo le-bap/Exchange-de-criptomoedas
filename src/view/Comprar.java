@@ -110,10 +110,11 @@ public class Comprar extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addComponent(lblTexto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btEthereum1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btBitoin, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btRipple, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btBitoin, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btRipple, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(25, 25, 25))
         );
 
@@ -125,11 +126,11 @@ public class Comprar extends javax.swing.JFrame {
     }//GEN-LAST:event_btBitoinActionPerformed
 
     private void btRippleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRippleActionPerformed
-        control.comprarRipple(investidor);
+        //control.comprarRipple(investidor);
     }//GEN-LAST:event_btRippleActionPerformed
 
     private void btEthereum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEthereum1ActionPerformed
-        control.comprarEthereum(investidor);
+        //control.comprarEthereum(investidor);
     }//GEN-LAST:event_btEthereum1ActionPerformed
 
     /**

@@ -50,8 +50,18 @@ public class UsuarioDAO {
         return resul;
     }
     
-   public void atualizar(Investidor investidor, double valor) throws SQLException {
-    String sql = "update usuario set reais = ? where senha = ?";
+    public void atualizarReais(Investidor investidor, double valor) throws SQLException {
+        String sql = "update usuario set reais = ? where senha = ?";
+
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, String.valueOf(valor));
+        statement.setString(2, investidor.getSenha());
+        statement.execute();
+        conn.close();
+    }
+    
+    public void atualizarBitcoin(Investidor investidor, double valor) throws SQLException {
+    String sql = "update usuario set bitcoin = ? where senha = ?";
     
     PreparedStatement statement = conn.prepareStatement(sql);
     statement.setString(1, String.valueOf(valor));

@@ -35,7 +35,7 @@ public class ControllerDepositar {
                 view.getLblSaldoAntes().setText(String.valueOf(reais));
 
                 double saldo = reais + deposito;
-                dao.atualizar(investidor,saldo);
+                dao.atualizarReais(investidor,saldo);
                 view.getLblSaldoDepois().setText(String.valueOf(saldo));
             }
         }

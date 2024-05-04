@@ -26,7 +26,6 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblFrase" min="-2" pref="218" max="-2" attributes="0"/>
                   <Component id="lblNome" min="-2" pref="183" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -43,6 +42,7 @@
                           <Component id="btSair" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Component id="lblFrase" alignment="0" min="-2" pref="273" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="27" max="32767" attributes="0"/>
           </Group>
@@ -87,7 +87,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Microsoft YaHei UI" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Boas-vindas, investidor!"/>
+        <Property name="text" type="java.lang.String" value="Boas-vindas!"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btSaldo">
