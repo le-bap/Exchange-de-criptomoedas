@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.Investidor;
+import view.Comprar;
 import view.ConsultarSaldo;
 import view.Depositar;
 import view.Menu;
@@ -26,7 +27,8 @@ public class ControllerMenu {
     }
     
     public void consultarSaldo(){
-        String senha = JOptionPane.showInputDialog(null, "Para prossegui digite sua senha novamente:",
+        String senha = JOptionPane.showInputDialog(null, "Para prosseguir,"
+                + " digite sua senha novamente:",
                 "Verificar Senha", JOptionPane.PLAIN_MESSAGE);
 
         if (senha != null) {
@@ -43,7 +45,7 @@ public class ControllerMenu {
                         String nome = res.getString("nome");
                         String cpf = res.getString("cpf");
 
-                        ConsultarSaldo view = new ConsultarSaldo(new Investidor(nome, cpf, null));
+                        ConsultarSaldo view = new ConsultarSaldo(investidor);
                         view.setVisible(true);
                     }
                     else{
@@ -58,7 +60,8 @@ public class ControllerMenu {
     }
     
     public void depositar(){
-        String senha = JOptionPane.showInputDialog(null, "Para prossegui digite sua senha novamente:",
+        String senha = JOptionPane.showInputDialog(null, "Para prosseguir, "
+                + "digite sua senha novamente:",
                 "Verificar Senha", JOptionPane.PLAIN_MESSAGE);
 
         if (senha != null) {
@@ -86,7 +89,8 @@ public class ControllerMenu {
     
     
     public void sacar(){
-        String senha = JOptionPane.showInputDialog(null, "Para prossegui digite sua senha novamente:",
+        String senha = JOptionPane.showInputDialog(null, "Para "
+                + "prosseguir, digite sua senha novamente:",
                 "Verificar Senha", JOptionPane.PLAIN_MESSAGE);
 
         if (senha != null) {
@@ -101,6 +105,33 @@ public class ControllerMenu {
 
                         Sacar s = new Sacar(investidor);
                         s.setVisible(true);
+                    }else {
+                        JOptionPane.showMessageDialog(null, "Senha incorreta.");
+                    }
+                }
+            } catch(SQLException e) {
+                JOptionPane.showMessageDialog(null, "Erro de conexão");
+            }
+        } 
+    }
+    
+    public void comprar(){
+         String senha = JOptionPane.showInputDialog(null, "Para "
+                 + "prosseguir, digite sua senha novamente:",
+                "Verificar Senha", JOptionPane.PLAIN_MESSAGE);
+
+        if (senha != null) {
+            Conexao conexao = new Conexao();
+            try{
+                Connection conn = conexao.getConnection();
+                UsuarioDAO dao = new UsuarioDAO(conn);
+                ResultSet res = dao.consultar(investidor);
+                if (res.next()){
+                    if(senha.equals(res.getString("senha"))){
+                        JOptionPane.showMessageDialog(null, "Senha confirmada!");
+
+                        Comprar c = new Comprar(investidor);
+                        c.setVisible(true);
                     }else {
                         JOptionPane.showMessageDialog(null, "Senha incorreta.");
                     }
