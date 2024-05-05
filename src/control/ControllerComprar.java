@@ -30,7 +30,7 @@ public class ControllerComprar {
     }
     
     public void comprarRipple(){
-        ComprarRipple c = new ComprarRipple();
+        ComprarRipple c = new ComprarRipple(investidor);
         c.setVisible(true);
     }
 }

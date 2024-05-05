@@ -13,12 +13,12 @@ public class Real extends Moedas implements Tarifacao{
 
     @Override
     public double cotarCompra(double valor, double taxaVenda) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return valor;
     }
 
     @Override
     public double cotarVenda(double valor, double taxaVenda) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return valor;
     }
     
     

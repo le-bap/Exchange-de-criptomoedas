@@ -8,16 +8,17 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.Investidor;
 import view.ComprarEthereum;
+import view.ComprarRipple;
 
 /**
  *
  * @author Letizia
  */
-public class ControllerComprarEthereum {
-    private Investidor investidor;
-    private ComprarEthereum view;
+public class ControllerComprarRipple {
+private Investidor investidor;
+    private ComprarRipple view;
 
-    public ControllerComprarEthereum(ComprarEthereum view, Investidor invetidor) {
+    public ControllerComprarRipple(ComprarRipple view, Investidor invetidor) {
         this.view = view;
         this.investidor = invetidor;
     }
@@ -30,14 +31,14 @@ public class ControllerComprarEthereum {
             UsuarioDAO dao = new UsuarioDAO(conn);
             ResultSet res = dao.consultar(investidor);
             if (res.next()){
-                double ethereum = res.getDouble("ethereum");
+                double ripple = res.getDouble("ripple");
                 double reais = res.getDouble("reais");
-                double valorCotado = investidor.getCarteira().getEthereum().
-                        cotarCompra(valor, investidor.getCarteira().getEthereum().getTaxaCompra());
+                double valorCotado = investidor.getCarteira().getRipple().
+                        cotarCompra(valor, investidor.getCarteira().getRipple().getTaxaCompra());
                 
                 if (valorCotado < reais){    
-                    double saldo = ethereum + valor ;
-                    dao.atualizarEthereum(investidor,saldo);
+                    double saldo = ripple + valor ;
+                    dao.atualizarRipple(investidor,saldo);
                     
                     double saldoReal = reais - valorCotado;
                     dao.atualizarReais(investidor, saldoReal);
@@ -54,5 +55,5 @@ public class ControllerComprarEthereum {
         catch(SQLException e){
             JOptionPane.showMessageDialog(view, e);
         }        
-    }
+    }    
 }
