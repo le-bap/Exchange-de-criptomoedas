@@ -25,7 +25,7 @@ public class ControllerComprar {
     }
     
     public void comprarEthereum(){
-        ComprarEthereum c = new ComprarEthereum();
+        ComprarEthereum c = new ComprarEthereum(investidor);
         c.setVisible(true);
     }
     

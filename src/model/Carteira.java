@@ -12,10 +12,10 @@ public class Carteira {
     private Real real;
     
     public Carteira(){
-        bitcoin = new Bitcoin(0.02, 0.03, 0);
-        ethereum = new Ethereum(0.01, 0.02, 0);
-        ripple = new Ripple(0.01, 0.01, 0);
-        real = new Real(0, 0, 0);
+        bitcoin = new Bitcoin(0.02, 0.03);
+        ethereum = new Ethereum(0.01, 0.02);
+        ripple = new Ripple(0.01, 0.01);
+        real = new Real(0, 0);
     }
 
     public Bitcoin getBitcoin() {

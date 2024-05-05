@@ -126,11 +126,11 @@ public class Comprar extends javax.swing.JFrame {
     }//GEN-LAST:event_btBitoinActionPerformed
 
     private void btRippleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRippleActionPerformed
-        //control.comprarRipple(investidor);
+        //control.comprarRipple();
     }//GEN-LAST:event_btRippleActionPerformed
 
     private void btEthereum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEthereum1ActionPerformed
-        //control.comprarEthereum(investidor);
+        control.comprarEthereum();
     }//GEN-LAST:event_btEthereum1ActionPerformed
 
     /**

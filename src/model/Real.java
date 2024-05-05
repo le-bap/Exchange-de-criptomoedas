@@ -7,18 +7,17 @@ package model;
  */
 public class Real extends Moedas implements Tarifacao{
 
-    public Real(double taxaCompra, double taxaVenda, double saldo) {
-        super(taxaCompra, taxaVenda, saldo);
-    }
-
-
-    @Override
-    public double cotarCompra(double valor) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Real(double taxaCompra, double taxaVenda) {
+        super(taxaCompra, taxaVenda);
     }
 
     @Override
-    public double cotarVenda(double valor) {
+    public double cotarCompra(double valor, double taxaVenda) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public double cotarVenda(double valor, double taxaVenda) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

@@ -6,12 +6,11 @@ package model;
  * @author uniflbaptistella
  */
 public abstract class Moedas{
-    private double taxaCompra, taxaVenda, saldo;
+    private double taxaCompra, taxaVenda;
 
-    public Moedas(double taxaCompra, double taxaVenda, double saldo) {
+    public Moedas(double taxaCompra, double taxaVenda) {
         this.taxaCompra = taxaCompra;
         this.taxaVenda = taxaVenda;
-        this.saldo = saldo;
     }
 
     public double getTaxaCompra() {
@@ -29,13 +28,4 @@ public abstract class Moedas{
     public void setTaxaVenda(double taxaVenda) {
         this.taxaVenda = taxaVenda;
     }
-
-    public double getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-    
 }

@@ -7,17 +7,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.Investidor;
-import view.ComprarBitcoin;
+import view.ComprarEthereum;
 
 /**
  *
  * @author Letizia
  */
-public class ControllerComprarBitcoin {
+public class ControllerComprarEthereum {
     private Investidor investidor;
-    private ComprarBitcoin view;
+    private ComprarEthereum view;
 
-    public ControllerComprarBitcoin(ComprarBitcoin view, Investidor invetidor) {
+    public ControllerComprarEthereum(ComprarEthereum view, Investidor invetidor) {
         this.view = view;
         this.investidor = invetidor;
     }
@@ -30,14 +30,14 @@ public class ControllerComprarBitcoin {
             UsuarioDAO dao = new UsuarioDAO(conn);
             ResultSet res = dao.consultar(investidor);
             if (res.next()){
-                double bitcoin = res.getDouble("bitcoin");
+                double bitcoin = res.getDouble("ethereum");
                 double reais = res.getDouble("reais");
-                double valorCotado = investidor.getCarteira().getBitcoin().
-                        cotarCompra(valor, investidor.getCarteira().getBitcoin().getTaxaCompra());
+                double valorCotado = investidor.getCarteira().getEthereum().
+                        cotarCompra(valor, investidor.getCarteira().getEthereum().getTaxaCompra());
                 
                 if (valorCotado < reais){    
                     double saldo = bitcoin + valor ;
-                    dao.atualizarBitcoin(investidor,saldo);
+                    dao.atualizarEthereum(investidor,saldo);
                     
                     double saldoReal = reais - valorCotado;
                     dao.atualizarReais(investidor, saldoReal);
