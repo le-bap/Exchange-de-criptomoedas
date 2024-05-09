@@ -25,8 +25,8 @@ public class ControllerVender {
     }
     
     public void venderEthereum(){
-        //VenderEthereum v = new VenderEthereum(investidor);
-        //v.setVisible(true);
+        VenderEthereum v = new VenderEthereum(investidor);
+        v.setVisible(true);
     }
     
     public void venderRipple(){

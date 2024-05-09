@@ -1,3 +1,4 @@
+
 package control;
 
 import DAO.Conexao;
@@ -8,16 +9,17 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.Investidor;
 import view.VenderBitcoin;
+import view.VenderEthereum;
 
 /**
  *
  * @author Letizia
  */
-public class ControllerVenderBitcoin {
+public class ControllerVenderEthereum {
     private Investidor investidor;
-    private VenderBitcoin view;
+    private VenderEthereum view;
 
-    public ControllerVenderBitcoin(VenderBitcoin view, Investidor investidor) {
+    public ControllerVenderEthereum(VenderEthereum view, Investidor investidor) {
         this.investidor = investidor;
         this.view = view;
     }
@@ -30,17 +32,18 @@ public class ControllerVenderBitcoin {
             UsuarioDAO dao = new UsuarioDAO(conn);
             ResultSet res = dao.consultar(investidor);
             if (res.next()){
-                double bitcoin = res.getDouble("bitcoin");
+                double ethereum = res.getDouble("ethereum");
                 double reais = res.getDouble("reais");
-                double valorCotado = investidor.getCarteira().getBitcoin().
-                        cotarVenda(valor, investidor.getCarteira().getBitcoin().getTaxaVenda());
-                if (valorCotado <= bitcoin){    
+                double valorCotado = investidor.getCarteira().getEthereum().
+                        cotarVenda(valor, investidor.getCarteira().getEthereum().getTaxaVenda());
+                System.out.println(valorCotado);
+                if (valorCotado <= ethereum){    
                     double saldoReais = reais + valorCotado ;
                     dao.atualizarReais(investidor,saldoReais);
-                    
-                    double saldoBitcoin = bitcoin - valor;
-                    dao.atualizarBitcoin(investidor, saldoBitcoin);
-                    
+                    System.out.println(saldoReais);
+                    double saldoEthereum = ethereum - valor;
+                    dao.atualizarEthereum(investidor, saldoEthereum);
+                    System.out.println(saldoEthereum);
                     JOptionPane.showMessageDialog(view, "Compra efetuada!");
                     conn.close();
                 }

@@ -18,7 +18,7 @@ public class Ethereum extends Moedas implements Tarifacao{
 
     @Override
     public double cotarVenda(double valor, double taxaVenda) {
-        return valor + valor*taxaVenda;
+        return valor - valor*taxaVenda;
     }
     
 }
