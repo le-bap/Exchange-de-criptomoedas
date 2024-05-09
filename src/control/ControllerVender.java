@@ -30,7 +30,7 @@ public class ControllerVender {
     }
     
     public void venderRipple(){
-        //VenderRipple v = new VenderRipple(investidor);
-        //v.setVisible(true);
+        VenderRipple v = new VenderRipple(investidor);
+        v.setVisible(true);
     }
 }

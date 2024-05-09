@@ -33,22 +33,23 @@ public class ControllerVenderEthereum {
             ResultSet res = dao.consultar(investidor);
             if (res.next()){
                 double ethereum = res.getDouble("ethereum");
+                System.out.println(ethereum);
                 double reais = res.getDouble("reais");
                 double valorCotado = investidor.getCarteira().getEthereum().
                         cotarVenda(valor, investidor.getCarteira().getEthereum().getTaxaVenda());
-                System.out.println(valorCotado);
-                if (valorCotado <= ethereum){    
+
+                if (valor <= ethereum){    
                     double saldoReais = reais + valorCotado ;
                     dao.atualizarReais(investidor,saldoReais);
-                    System.out.println(saldoReais);
+
                     double saldoEthereum = ethereum - valor;
                     dao.atualizarEthereum(investidor, saldoEthereum);
-                    System.out.println(saldoEthereum);
-                    JOptionPane.showMessageDialog(view, "Compra efetuada!");
+
+                    JOptionPane.showMessageDialog(view, "Venda efetuada!");
                     conn.close();
                 }
                 else{
-                    JOptionPane.showMessageDialog(view, "Não há bitcoins suficiente"
+                    JOptionPane.showMessageDialog(view, "Não há ethereuns suficientes"
                             + "para efetuar esta venda.");
                 }
             }
