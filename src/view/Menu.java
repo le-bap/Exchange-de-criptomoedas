@@ -252,7 +252,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btSacarActionPerformed
 
     private void btVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVendasActionPerformed
-        // TODO add your handling code here:
+        control.vender();
     }//GEN-LAST:event_btVendasActionPerformed
 
     private void btComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btComprasActionPerformed

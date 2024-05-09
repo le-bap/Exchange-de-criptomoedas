@@ -12,6 +12,7 @@ import view.ConsultarSaldo;
 import view.Depositar;
 import view.Menu;
 import view.Sacar;
+import view.Vender;
 
 /**
  *
@@ -132,6 +133,33 @@ public class ControllerMenu {
 
                         Comprar c = new Comprar(investidor);
                         c.setVisible(true);
+                    }else {
+                        JOptionPane.showMessageDialog(null, "Senha incorreta.");
+                    }
+                }
+            } catch(SQLException e) {
+                JOptionPane.showMessageDialog(null, "Erro de conexão");
+            }
+        } 
+    }
+    
+    public void vender(){
+         String senha = JOptionPane.showInputDialog(null, "Para "
+                 + "prosseguir, digite sua senha novamente:",
+                "Verificar Senha", JOptionPane.PLAIN_MESSAGE);
+
+        if (senha != null) {
+            Conexao conexao = new Conexao();
+            try{
+                Connection conn = conexao.getConnection();
+                UsuarioDAO dao = new UsuarioDAO(conn);
+                ResultSet res = dao.consultar(investidor);
+                if (res.next()){
+                    if(senha.equals(res.getString("senha"))){
+                        JOptionPane.showMessageDialog(null, "Senha confirmada!");
+
+                        Vender v = new Vender(investidor);
+                        v.setVisible(true);
                     }else {
                         JOptionPane.showMessageDialog(null, "Senha incorreta.");
                     }
