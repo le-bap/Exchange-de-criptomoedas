@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.Investidor;
+import view.Atualizar;
 import view.Comprar;
 import view.ConsultarSaldo;
 import view.Depositar;
@@ -160,6 +161,33 @@ public class ControllerMenu {
 
                         Vender v = new Vender(investidor);
                         v.setVisible(true);
+                    }else {
+                        JOptionPane.showMessageDialog(null, "Senha incorreta.");
+                    }
+                }
+            } catch(SQLException e) {
+                JOptionPane.showMessageDialog(null, "Erro de conexão");
+            }
+        } 
+    }
+    
+    public void atualizar(){
+         String senha = JOptionPane.showInputDialog(null, "Para "
+                 + "prosseguir, digite sua senha novamente:",
+                "Verificar Senha", JOptionPane.PLAIN_MESSAGE);
+
+        if (senha != null) {
+            Conexao conexao = new Conexao();
+            try{
+                Connection conn = conexao.getConnection();
+                UsuarioDAO dao = new UsuarioDAO(conn);
+                ResultSet res = dao.consultar(investidor);
+                if (res.next()){
+                    if(senha.equals(res.getString("senha"))){
+                        JOptionPane.showMessageDialog(null, "Senha confirmada!");
+
+                        Atualizar a = new Atualizar();
+                        a.setVisible(true);
                     }else {
                         JOptionPane.showMessageDialog(null, "Senha incorreta.");
                     }
