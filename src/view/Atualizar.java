@@ -5,15 +5,19 @@ import control.ControllerAtualizar;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import model.Investidor;
 
 /**
  *
  * @author Letizia
  */
 public class Atualizar extends javax.swing.JFrame {
-    public Atualizar() {
+    private Investidor investidor;
+    
+    public Atualizar(Investidor investidor) {
         initComponents();
-        control = new ControllerAtualizar(this);
+        this.investidor = investidor;
+        control = new ControllerAtualizar(this, investidor);
     }
 
     public JLabel getLblBitcoin() {

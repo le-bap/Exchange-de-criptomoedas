@@ -2,6 +2,7 @@ package control;
 
 import view.Atualizar;
 import java.util.Random;
+import model.Investidor;
 
 /**
  *
@@ -17,9 +18,12 @@ public class ControllerAtualizar {
     private double atualRipple;
     
     Random aleatorio = new Random();
+    
+    private Investidor investidor;
 
-    public ControllerAtualizar(Atualizar view) {
+    public ControllerAtualizar(Atualizar view, Investidor investidor) {
         this.view = view;
+        this.investidor = investidor;
     }
     
     public void atualizar(){
@@ -33,40 +37,16 @@ public class ControllerAtualizar {
         double maxRipple = cotacaoRipple + cotacaoRipple * 0.05;
         
         double atualizarBitcoin = minBitcoin + (maxBitcoin - minBitcoin) * aleatorio.nextDouble();
-        atualBitcoin = atualizarBitcoin;
+        investidor.getCarteira().getBitcoin().setValor(atualizarBitcoin);
         
         double atualizarEthereum = minEthereum + (maxEthereum - minEthereum) * aleatorio.nextDouble();
-        atualEthereum = atualizarEthereum;
+        investidor.getCarteira().getEthereum().setValor(atualizarEthereum);
         
         double atualizarRipple = minRipple + (maxRipple - minRipple) * aleatorio.nextDouble();
-        atualRipple = atualizarRipple;
+        investidor.getCarteira().getRipple().setValor(atualizarRipple);
         
         view.getTxtBitcoin().setText(String.valueOf(atualizarBitcoin));
         view.getTxtEthereum().setText(String.valueOf(atualizarEthereum));
         view.getTxtRipple().setText(String.valueOf(atualizarRipple));
-    }
-
-    public double getAtualBitcoin() {
-        return atualBitcoin;
-    }
-
-    public void setAtualBitcoin(double atualBitcoin) {
-        this.atualBitcoin = atualBitcoin;
-    }
-
-    public double getAtualEthereum() {
-        return atualEthereum;
-    }
-
-    public void setAtualEthereum(double atualEthereum) {
-        this.atualEthereum = atualEthereum;
-    }
-
-    public double getAtualRipple() {
-        return atualRipple;
-    }
-
-    public void setAtualRipple(double atualRipple) {
-        this.atualRipple = atualRipple;
     }
 }

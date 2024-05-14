@@ -186,7 +186,7 @@ public class ControllerMenu {
                     if(senha.equals(res.getString("senha"))){
                         JOptionPane.showMessageDialog(null, "Senha confirmada!");
 
-                        Atualizar a = new Atualizar();
+                        Atualizar a = new Atualizar(investidor);
                         a.setVisible(true);
                     }else {
                         JOptionPane.showMessageDialog(null, "Senha incorreta.");
