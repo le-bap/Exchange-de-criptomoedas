@@ -35,23 +35,26 @@ private Investidor investidor;
                 double reais = res.getDouble("reais");
                 
                 double valorRipple = investidor.getCarteira().getRipple().getValor();
-                System.out.println(valorRipple);
+
                 double taxaCompra = investidor.getCarteira().getRipple().getTaxaCompra();
-                System.out.println(taxaCompra);
-                double valorCotado = investidor.getCarteira().getRipple().cotarCompra(valorDigitado, taxaCompra)
-                        * valorRipple;
-                System.out.println(valorCotado);
-                if (valorCotado < reais){
-                    dao.atualizarRipple(investidor,(valorDigitado + ripple));
-                    
-                    double saldoReal = reais - valorCotado;
-                    dao.atualizarReais(investidor, saldoReal);
-                    JOptionPane.showMessageDialog(view, "Compra efetuada!");
-                    conn.close();
-                }
-                else{
-                    JOptionPane.showMessageDialog(view, "Não há saldo suficiente"
-                            + "para efetuar esta compra.");
+
+                double valorCotado = investidor.getCarteira().getRipple().cotarCompra(valorDigitado, taxaCompra);
+
+                if (valorRipple == 0){
+                    JOptionPane.showMessageDialog(view, "Por favor atualize a cotação antes.");
+                }else{
+                    if (valorCotado < reais){
+                        dao.atualizarRipple(investidor,(valorDigitado + ripple));
+
+                        double saldoReal = reais - valorCotado;
+                        dao.atualizarReais(investidor, saldoReal);
+                        JOptionPane.showMessageDialog(view, "Compra efetuada!");
+                        conn.close();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(view, "Não há saldo suficiente"
+                                + "para efetuar esta compra.");
+                    }
                 }
             }
         }

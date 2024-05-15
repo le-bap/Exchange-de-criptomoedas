@@ -22,15 +22,18 @@ public class ControllerComprar {
     public void comprarBitcoin(){
         ComprarBitcoin c = new ComprarBitcoin(investidor);
         c.setVisible(true);
+        view.setVisible(false);
     }
     
     public void comprarEthereum(){
         ComprarEthereum c = new ComprarEthereum(investidor);
         c.setVisible(true);
+        view.setVisible(false);
     }
     
     public void comprarRipple(){
         ComprarRipple c = new ComprarRipple(investidor);
         c.setVisible(true);
+        view.setVisible(false);
     }
 }

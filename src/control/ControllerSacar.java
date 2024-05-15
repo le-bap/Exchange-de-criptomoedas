@@ -5,6 +5,7 @@ import DAO.UsuarioDAO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import model.Investidor;
 import view.Sacar;
@@ -24,7 +25,8 @@ public class ControllerSacar {
     
     
     public void saque(Investidor investidor){
-        double saque = Double.parseDouble(view.getTxtSaque().getText());        
+        double saque = Double.parseDouble(view.getTxtSaque().getText()); 
+        DecimalFormat df = new DecimalFormat("#0.00");
         Conexao conexao = new Conexao();
         try{
             Connection conn = conexao.getConnection();
@@ -32,7 +34,7 @@ public class ControllerSacar {
             ResultSet res = dao.acharInvestidor(investidor);
             if (res.next()){
                 double reais = res.getDouble("reais");
-                view.getLblSaldoAntes().setText(String.valueOf(reais));
+                view.getLblSaldoAntes().setText("R$ " + String.valueOf(df.format(reais)));
 
                 if (reais == 0){
                     JOptionPane.showMessageDialog(view, "Saque não pode ser "
@@ -40,9 +42,11 @@ public class ControllerSacar {
                     view.setVisible(false);
                 }
                 else{
+                    
+                    
                     double saldo = reais - saque;
                     dao.atualizarReais(investidor,saldo);
-                    view.getLblSaldoDepois().setText(String.valueOf(saldo));
+                    view.getLblSaldoDepois().setText("R$ " +String.valueOf(df.format(saldo)));
                 }
             }
         }

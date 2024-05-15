@@ -37,20 +37,24 @@ public class ControllerComprarBitcoin {
                 
                 double taxaCompra = investidor.getCarteira().getBitcoin().getTaxaCompra();
                 
-                double valorCotado = investidor.getCarteira().getBitcoin().cotarCompra(valorDigitado, taxaCompra)
-                        * valorBitcoin;
+                double valorCotado = investidor.getCarteira().getBitcoin().cotarCompra(valorDigitado, taxaCompra);
                 
-                if (valorCotado < reais){
-                    dao.atualizarBitcoin(investidor,(valorDigitado + bitcoin));
-                    
-                    double saldoReal = reais - valorCotado;
-                    dao.atualizarReais(investidor, saldoReal);
-                    JOptionPane.showMessageDialog(view, "Compra efetuada!");
-                    conn.close();
-                }
-                else{
-                    JOptionPane.showMessageDialog(view, "Não há saldo suficiente"
-                            + "para efetuar esta compra.");
+                if (valorBitcoin == 0){
+                    JOptionPane.showMessageDialog(view, "Por favor atualize a cotação antes.");
+                }else{
+                
+                    if (valorCotado < reais){
+                        dao.atualizarBitcoin(investidor,(valorDigitado + bitcoin));
+
+                        double saldoReal = reais - valorCotado;
+                        dao.atualizarReais(investidor, saldoReal);
+                        JOptionPane.showMessageDialog(view, "Compra efetuada!");
+                        conn.close();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(view, "Não há saldo suficiente"
+                                + "para efetuar esta compra.");
+                    }
                 }
             }
         }

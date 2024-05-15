@@ -32,22 +32,30 @@ public class ControllerVenderRipple {
             if (res.next()){
                 double ripple = res.getDouble("ripple");
                 double reais = res.getDouble("reais");
-                double valorCotado = investidor.getCarteira().getRipple().
-                        cotarVenda(valor, investidor.getCarteira().getRipple().getTaxaVenda());
-                System.out.println(valorCotado);
-                if (valor <= ripple){    
-                    double saldoReais = reais + valorCotado ;
-                    dao.atualizarReais(investidor,saldoReais);
-                    System.out.println(saldoReais);
-                    double saldoRipple = ripple - valor;
-                    dao.atualizarEthereum(investidor, saldoRipple);
-                    System.out.println(saldoRipple);
-                    JOptionPane.showMessageDialog(view, "Venda efetuada!");
-                    conn.close();
-                }
-                else{
-                    JOptionPane.showMessageDialog(view, "Não há ripples suficientes"
-                            + "para efetuar esta venda.");
+
+                double valorRipple = investidor.getCarteira().getRipple().getValor();
+
+                double taxaCompra = investidor.getCarteira().getRipple().getTaxaCompra();
+
+                double valorCotado = investidor.getCarteira().getRipple().cotarCompra(valor, taxaCompra);
+                
+                if(valorRipple == 0){
+                    JOptionPane.showMessageDialog(view, "Por favor atualize a cotação antes.");
+                }else{
+                    if (valor <= ripple){    
+                        double saldoReais = reais + valorCotado ;
+                        dao.atualizarReais(investidor,saldoReais);
+                        System.out.println(saldoReais);
+                        double saldoRipple = ripple - valor;
+                        dao.atualizarEthereum(investidor, saldoRipple);
+                        System.out.println(saldoRipple);
+                        JOptionPane.showMessageDialog(view, "Venda efetuada!");
+                        conn.close();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(view, "Não há ripples suficientes"
+                                + "para efetuar esta venda.");
+                    }
                 }
             }
         }

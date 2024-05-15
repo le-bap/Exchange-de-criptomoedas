@@ -5,6 +5,7 @@ import DAO.UsuarioDAO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import model.Investidor;
 import view.Depositar;
@@ -31,12 +32,14 @@ public class ControllerDepositar {
             UsuarioDAO dao = new UsuarioDAO(conn);
             ResultSet res = dao.acharInvestidor(investidor);
             if (res.next()){
+                DecimalFormat df = new DecimalFormat("#0.00");
+                
                 double reais = res.getDouble("reais");
-                view.getLblSaldoAntes().setText(String.valueOf(reais));
+                view.getLblSaldoAntes().setText("R$ "+String.valueOf(df.format(reais)));
 
                 double saldo = reais + deposito;
                 dao.atualizarReais(investidor,saldo);
-                view.getLblSaldoDepois().setText(String.valueOf(saldo));
+                view.getLblSaldoDepois().setText("R$ "+String.valueOf(df.format(saldo)));
             }
         }
         catch(SQLException e){

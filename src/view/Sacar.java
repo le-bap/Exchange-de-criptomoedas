@@ -29,14 +29,6 @@ public class Sacar extends javax.swing.JFrame {
         this.investidor = investidor;
     }
 
-    public JButton getBtDepositar() {
-        return btDepositar;
-    }
-
-    public void setBtDepositar(JButton btDepositar) {
-        this.btDepositar = btDepositar;
-    }
-
     public JButton getBtSacar() {
         return btSacar;
     }
@@ -115,6 +107,7 @@ public class Sacar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton3 = new javax.swing.JButton();
         btSacar = new javax.swing.JButton();
         lblSaque = new javax.swing.JLabel();
         lblTexto = new javax.swing.JLabel();
@@ -124,8 +117,20 @@ public class Sacar extends javax.swing.JFrame {
         lblS = new javax.swing.JLabel();
         lblS1 = new javax.swing.JLabel();
         lblSaldoAntes = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+
+        jButton3.setBackground(new java.awt.Color(153, 153, 153));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton3.setText("X");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
         btSacar.setText("Sacar");
         btSacar.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +145,7 @@ public class Sacar extends javax.swing.JFrame {
         lblTexto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblTexto.setText("Por favor, escreva a quantidade que deseja sacar:");
 
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblSaldoDepois.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -150,6 +156,7 @@ public class Sacar extends javax.swing.JFrame {
         lblS1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblS1.setText("Saldo atualizado:");
 
+        lblSaldoAntes.setBackground(new java.awt.Color(255, 204, 204));
         lblSaldoAntes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -183,6 +190,15 @@ public class Sacar extends javax.swing.JFrame {
                 .addGap(0, 19, Short.MAX_VALUE))
         );
 
+        jButton4.setBackground(new java.awt.Color(153, 153, 153));
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton4.setText("X");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -198,13 +214,17 @@ public class Sacar extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblSaque, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(164, 164, 164))
+                .addGap(137, 137, 137)
+                .addComponent(jButton4))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(lblSaque, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblSaque, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -217,11 +237,20 @@ public class Sacar extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btSacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSacarActionPerformed
         control.saque(investidor);
     }//GEN-LAST:event_btSacarActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,8 +288,9 @@ public class Sacar extends javax.swing.JFrame {
 //    }
     private ControllerSacar control;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btDepositar;
     private javax.swing.JButton btSacar;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblS;
     private javax.swing.JLabel lblS1;

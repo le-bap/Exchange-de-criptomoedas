@@ -37,20 +37,23 @@ public class ControllerComprarEthereum {
                 
                 double taxaCompra = investidor.getCarteira().getEthereum().getTaxaCompra();
                 
-                double valorCotado = investidor.getCarteira().getEthereum().cotarCompra(valorDigitado, taxaCompra)
-                        * valorEthereum;
+                double valorCotado = investidor.getCarteira().getEthereum().cotarCompra(valorDigitado, taxaCompra);
                 
-                if (valorCotado < reais){
-                    dao.atualizarEthereum(investidor,(valorDigitado + ethereum));
-                    
-                    double saldoReal = reais - valorCotado;
-                    dao.atualizarReais(investidor, saldoReal);
-                    JOptionPane.showMessageDialog(view, "Compra efetuada!");
-                    conn.close();
-                }
-                else{
-                    JOptionPane.showMessageDialog(view, "Não há saldo suficiente"
-                            + "para efetuar esta compra.");
+                if(valorEthereum == 0){
+                    JOptionPane.showMessageDialog(view, "Por favor atualize a cotação antes");
+                }else{
+                    if (valorCotado < reais){
+                        dao.atualizarEthereum(investidor,(valorDigitado + ethereum));
+
+                        double saldoReal = reais - valorCotado;
+                        dao.atualizarReais(investidor, saldoReal);
+                        JOptionPane.showMessageDialog(view, "Compra efetuada!");
+                        conn.close();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(view, "Não há saldo suficiente"
+                                + "para efetuar esta compra.");
+                    }
                 }
             }
         }

@@ -13,13 +13,13 @@ public class Ripple extends Moedas implements Tarifacao{
     }
 
     @Override
-    public double cotarCompra(double valor, double taxaCompra) {
-        return valor + valor*taxaCompra;
+    public double cotarCompra(double valorDigitado, double taxaCompra) {
+        return (valorDigitado + valorDigitado*taxaCompra) * valor;
     }
 
     @Override
-    public double cotarVenda(double valor, double taxaVenda) {
-        return valor - valor*taxaVenda;
+    public double cotarVenda(double valorDigitado, double taxaVenda) {
+        return (valorDigitado - valorDigitado*taxaVenda) * valor;
     }
 
     public double getValor() {

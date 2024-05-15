@@ -5,6 +5,7 @@ import DAO.UsuarioDAO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import model.Investidor;
 import view.ConsultarSaldo;
@@ -38,10 +39,11 @@ public class ControllerConsultarSaldo {
 
                 view.getLblNome().setText(nome);
                 view.getLblCpf().setText(cpf);
-                view.getLblReais().setText(String.valueOf(real));
-                view.getLblBitcoins().setText(String.valueOf(bitcoin));
-                view.getLblEthereum().setText(String.valueOf(ethereum));
-                view.getLblRipple().setText(String.valueOf(ripple));
+                DecimalFormat df = new DecimalFormat("#0.00");
+                view.getLblReais().setText("R$" + df.format(real));
+                view.getLblBitcoins().setText(df.format(bitcoin));
+                view.getLblEthereum().setText(df.format(ethereum));
+                view.getLblRipple().setText(df.format(ripple));
             }
         }
         catch(SQLException e){

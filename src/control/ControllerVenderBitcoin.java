@@ -32,21 +32,31 @@ public class ControllerVenderBitcoin {
             if (res.next()){
                 double bitcoin = res.getDouble("bitcoin");
                 double reais = res.getDouble("reais");
-                double valorCotado = investidor.getCarteira().getBitcoin().
-                        cotarVenda(valor, investidor.getCarteira().getBitcoin().getTaxaVenda());
-                if (valor <= bitcoin){    
-                    double saldoReais = reais + valorCotado ;
-                    dao.atualizarReais(investidor,saldoReais);
-                    
-                    double saldoBitcoin = bitcoin - valor;
-                    dao.atualizarBitcoin(investidor, saldoBitcoin);
-                    
-                    JOptionPane.showMessageDialog(view, "Venda efetuada!");
-                    conn.close();
+                
+                double valorBitcoin = investidor.getCarteira().getBitcoin().getValor();
+                
+                double taxaCompra = investidor.getCarteira().getBitcoin().getTaxaCompra();
+                
+                double valorCotado = investidor.getCarteira().getBitcoin().cotarCompra(valor, taxaCompra);
+                
+                if(valorBitcoin == 0){
+                    JOptionPane.showMessageDialog(view, "Por favor atualize a cotação antes");
                 }
                 else{
-                    JOptionPane.showMessageDialog(view, "Não há bitcoins suficientes"
-                            + "para efetuar esta venda.");
+                    if (valor <= bitcoin){    
+                        double saldoReais = reais + valorCotado ;
+                        dao.atualizarReais(investidor,saldoReais);
+
+                        double saldoBitcoin = bitcoin - valor;
+                        dao.atualizarBitcoin(investidor, saldoBitcoin);
+
+                        JOptionPane.showMessageDialog(view, "Venda efetuada!");
+                        conn.close();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(view, "Não há bitcoins suficientes"
+                                + "para efetuar esta venda.");
+                    }
                 }
             }
         }

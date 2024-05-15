@@ -33,24 +33,32 @@ public class ControllerVenderEthereum {
             ResultSet res = dao.consultar(investidor);
             if (res.next()){
                 double ethereum = res.getDouble("ethereum");
-                System.out.println(ethereum);
+
                 double reais = res.getDouble("reais");
-                double valorCotado = investidor.getCarteira().getEthereum().
-                        cotarVenda(valor, investidor.getCarteira().getEthereum().getTaxaVenda());
+                
+                double valorEthereum = investidor.getCarteira().getEthereum().getValor();
+                
+                double taxaCompra = investidor.getCarteira().getEthereum().getTaxaCompra();
+                
+                double valorCotado = investidor.getCarteira().getEthereum().cotarCompra(valor, taxaCompra);
 
-                if (valor <= ethereum){    
-                    double saldoReais = reais + valorCotado ;
-                    dao.atualizarReais(investidor,saldoReais);
+                if(valorEthereum == 0){
+                    JOptionPane.showMessageDialog(view, "Por favor atualize a cotação antes");
+                }else{
+                    if (valor <= ethereum){    
+                        double saldoReais = reais + valorCotado ;
+                        dao.atualizarReais(investidor,saldoReais);
 
-                    double saldoEthereum = ethereum - valor;
-                    dao.atualizarEthereum(investidor, saldoEthereum);
+                        double saldoEthereum = ethereum - valor;
+                        dao.atualizarEthereum(investidor, saldoEthereum);
 
-                    JOptionPane.showMessageDialog(view, "Venda efetuada!");
-                    conn.close();
-                }
-                else{
-                    JOptionPane.showMessageDialog(view, "Não há ethereuns suficientes"
-                            + "para efetuar esta venda.");
+                        JOptionPane.showMessageDialog(view, "Venda efetuada!");
+                        conn.close();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(view, "Não há ethereuns suficientes"
+                                + "para efetuar esta venda.");
+                    }
                 }
             }
         }

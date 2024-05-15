@@ -22,15 +22,18 @@ public class ControllerVender {
     public void venderBitcoin(){
         VenderBitcoin v = new VenderBitcoin(investidor);
         v.setVisible(true);
+        view.setVisible(false);
     }
     
     public void venderEthereum(){
         VenderEthereum v = new VenderEthereum(investidor);
         v.setVisible(true);
+        view.setVisible(false);
     }
     
     public void venderRipple(){
         VenderRipple v = new VenderRipple(investidor);
         v.setVisible(true);
+        view.setVisible(false);
     }
 }
