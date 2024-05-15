@@ -12,10 +12,8 @@ public class ExchangeDeCriptomoedas {
         Login l = new Login();
         l.setVisible(true);
     }
-    
 }
 /**
  * 1 - extrato
  * 2 - parte estetica das JFrames
- * 3 - colocar banco de dados no Netbeans
  */

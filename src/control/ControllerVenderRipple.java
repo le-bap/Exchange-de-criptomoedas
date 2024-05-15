@@ -43,12 +43,12 @@ public class ControllerVenderRipple {
                     JOptionPane.showMessageDialog(view, "Por favor atualize a cotação antes.");
                 }else{
                     if (valor <= ripple){    
-                        double saldoReais = reais + valorCotado ;
+                        double saldoReais = reais + valorCotado;
                         dao.atualizarReais(investidor,saldoReais);
-                        System.out.println(saldoReais);
+                        
                         double saldoRipple = ripple - valor;
-                        dao.atualizarEthereum(investidor, saldoRipple);
-                        System.out.println(saldoRipple);
+                        dao.atualizarRipple(investidor, saldoRipple);
+
                         JOptionPane.showMessageDialog(view, "Venda efetuada!");
                         conn.close();
                     }

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import model.Investidor;
 
 /**
@@ -84,5 +85,33 @@ public class UsuarioDAO {
         statement.setString(1, String.valueOf(valor));
         statement.setString(2, investidor.getSenha());
         statement.execute();
+    }
+    
+    Date data = new Date();
+    
+    public void extrato(Investidor investidor, Date data, boolean tipo, double valor, double cotacao, String nome_moeda, double real, double bitcoin, double ethereum, double ripple) throws SQLException{
+        String sql2 = "select * from public.usuario where cpf = ?";
+        PreparedStatement statement2 = conn.prepareStatement(sql2);
+        statement2.setString(1, investidor.getCpf());
+        statement2.execute();
+        ResultSet resul = statement2.getResultSet();
+        int id = resul.getInt("id");
+        
+        String op;
+        if (tipo == true){
+            op = "+";
+        }else{
+            op = "-";
+        }
+        String sql = "insert into usuario (id, data, tipo, valor, cotacao,"
+                + " nome_moeda, real, bitcoin, ethereum, ripple, id_pessoa)"
+                + "values ('" + id + "', '" + String.valueOf(data.getTime()) + "', '"
+                + op + "', '" + String.valueOf(valor) + "', '" + String.valueOf(cotacao)
+                + "', '" + nome_moeda + "', '" + String.valueOf(real) + "', '" +
+                String.valueOf(bitcoin) + "', '" + String.valueOf(ethereum)
+                + "', '" + String.valueOf(ripple) + "', '" + id + "'";
+        
+        PreparedStatement statement = conn.prepareStatement(sql);
+        ResultSet resul2 = statement.getResultSet();
     }
 }

@@ -18,7 +18,6 @@ public class ControllerAtualizar {
     private double atualRipple;
     
     Random aleatorio = new Random();
-    
     private Investidor investidor;
 
     public ControllerAtualizar(Atualizar view, Investidor investidor) {

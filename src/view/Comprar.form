@@ -79,16 +79,17 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="44" max="32767" attributes="0"/>
-                          <Component id="lblTexto" min="-2" pref="447" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" pref="429" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="lblTexto" min="-2" pref="447" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="jButton6" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="484" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -102,9 +103,9 @@
                       </Group>
                       <Component id="jButton6" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="33" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btEthereum1" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
@@ -166,7 +167,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Lembre-se de consultar o &quot;Atualizar cota&#xe7;&#xe3;o&quot; para ver o pre&#xe7;o da moeda atualizado!"/>
+            <Property name="text" type="java.lang.String" value="Consulte a  fun&#xe7;&#xe3;o de &quot;Atualizar cota&#xe7;&#xe3;o&quot; para ver o pre&#xe7;o da moeda atualizado!"/>
           </Properties>
         </Component>
       </SubComponents>
