@@ -43,7 +43,7 @@ private Investidor investidor;
                 if (valorRipple == 0){
                     JOptionPane.showMessageDialog(view, "Por favor atualize a cotação antes.");
                 }else{
-                    if (valorCotado < reais){
+                    if (valorCotado <= reais){
                         dao.atualizarRipple(investidor,(valorDigitado + ripple));
 
                         double saldoReal = reais - valorCotado;

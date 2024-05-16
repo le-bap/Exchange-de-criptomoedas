@@ -1,5 +1,6 @@
 package control;
 
+import java.text.DecimalFormat;
 import view.Atualizar;
 import java.util.Random;
 import model.Investidor;
@@ -16,6 +17,8 @@ public class ControllerAtualizar {
     private double atualBitcoin;
     private double atualEthereum;
     private double atualRipple;
+    
+    DecimalFormat df = new DecimalFormat("#0.00");
     
     Random aleatorio = new Random();
     private Investidor investidor;
@@ -41,9 +44,9 @@ public class ControllerAtualizar {
         double atualizarRipple = minRipple + (maxRipple - minRipple) * aleatorio.nextDouble();
         investidor.getCarteira().getRipple().setValor(atualizarRipple);
         
-        view.getTxtBitcoin().setText(String.valueOf(atualizarBitcoin));
-        view.getTxtEthereum().setText(String.valueOf(atualizarEthereum));
-        view.getTxtRipple().setText(String.valueOf(atualizarRipple));
+        view.getTxtBitcoin().setText("R$ "+String.valueOf(df.format(atualizarBitcoin)));
+        view.getTxtEthereum().setText("R$ "+String.valueOf(df.format(atualizarEthereum)));
+        view.getTxtRipple().setText("R$ "+String.valueOf(df.format(atualizarRipple)));
     }
     
     public void atualizar(){
@@ -65,8 +68,8 @@ public class ControllerAtualizar {
         double atualizarRipple = minRipple + (maxRipple - minRipple) * aleatorio.nextDouble();
         investidor.getCarteira().getRipple().setValor(atualizarRipple);
         
-        view.getTxtBitcoin().setText(String.valueOf(atualizarBitcoin));
-        view.getTxtEthereum().setText(String.valueOf(atualizarEthereum));
-        view.getTxtRipple().setText(String.valueOf(atualizarRipple));
+        view.getTxtBitcoin().setText("R$ "+String.valueOf(df.format(atualizarBitcoin)));
+        view.getTxtEthereum().setText("R$ "+String.valueOf(df.format(atualizarEthereum)));
+        view.getTxtRipple().setText("R$ "+String.valueOf(df.format(atualizarRipple)));
     }
 }

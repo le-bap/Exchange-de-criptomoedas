@@ -5,6 +5,7 @@ import DAO.UsuarioDAO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import model.Investidor;
 import view.ComprarBitcoin;
@@ -32,6 +33,9 @@ public class ControllerComprarBitcoin {
             if (res.next()){
                 double bitcoin = res.getDouble("bitcoin");
                 double reais = res.getDouble("reais");
+                double ethereum = res.getDouble("ethereum");
+                System.out.println(ethereum);
+                double ripple = res.getDouble("ripple");
                 
                 double valorBitcoin = investidor.getCarteira().getBitcoin().getValor();
                 
@@ -42,14 +46,20 @@ public class ControllerComprarBitcoin {
                 if (valorBitcoin == 0){
                     JOptionPane.showMessageDialog(view, "Por favor atualize a cotação antes.");
                 }else{
-                
-                    if (valorCotado < reais){
+                    
+                    if (valorCotado <= reais){
                         dao.atualizarBitcoin(investidor,(valorDigitado + bitcoin));
 
                         double saldoReal = reais - valorCotado;
                         dao.atualizarReais(investidor, saldoReal);
                         JOptionPane.showMessageDialog(view, "Compra efetuada!");
-                        conn.close();
+                        Date data = new Date();
+                        ResultSet res2 = dao.acharID(investidor);
+                        if (res2.next()){
+                            int id = res2.getInt("id");
+                            dao.extrato(investidor, data, false, valorCotado, valorBitcoin, "bitcoin", reais, (valorDigitado + bitcoin), ethereum, ripple);
+                            conn.close();
+                        }
                     }
                     else{
                         JOptionPane.showMessageDialog(view, "Não há saldo suficiente"

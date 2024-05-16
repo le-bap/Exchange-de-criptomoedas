@@ -41,9 +41,9 @@ public class ControllerConsultarSaldo {
                 view.getLblCpf().setText(cpf);
                 DecimalFormat df = new DecimalFormat("#0.00");
                 view.getLblReais().setText("R$" + df.format(real));
-                view.getLblBitcoins().setText(df.format(bitcoin));
-                view.getLblEthereum().setText(df.format(ethereum));
-                view.getLblRipple().setText(df.format(ripple));
+                view.getLblBitcoins().setText(String.valueOf(bitcoin));
+                view.getLblEthereum().setText(String.valueOf(ethereum));
+                view.getLblRipple().setText(String.valueOf(ripple));
             }
         }
         catch(SQLException e){
