@@ -35,9 +35,9 @@ public class ControllerVenderRipple {
 
                 double valorRipple = investidor.getCarteira().getRipple().getValor();
 
-                double taxaCompra = investidor.getCarteira().getRipple().getTaxaCompra();
+                double taxaVenda = investidor.getCarteira().getRipple().getTaxaVenda();
 
-                double valorCotado = investidor.getCarteira().getRipple().cotarCompra(valor, taxaCompra);
+                double valorCotado = investidor.getCarteira().getRipple().cotarCompra(valor, taxaVenda);
                 
                 if(valorRipple == 0){
                     JOptionPane.showMessageDialog(view, "Por favor atualize a cotação antes.");

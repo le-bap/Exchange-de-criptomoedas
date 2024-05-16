@@ -96,7 +96,6 @@ public class UsuarioDAO {
         statement2.execute();
         ResultSet resul = statement2.getResultSet();
         int id = resul.getInt("id");
-        
         String op;
         if (tipo == true){
             op = "+";
@@ -112,6 +111,7 @@ public class UsuarioDAO {
                 + "', '" + String.valueOf(ripple) + "', '" + id + "'";
         
         PreparedStatement statement = conn.prepareStatement(sql);
-        ResultSet resul2 = statement.getResultSet();
+        statement.execute();
+        conn.close();
     }
 }

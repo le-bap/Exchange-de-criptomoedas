@@ -38,9 +38,9 @@ public class ControllerVenderEthereum {
                 
                 double valorEthereum = investidor.getCarteira().getEthereum().getValor();
                 
-                double taxaCompra = investidor.getCarteira().getEthereum().getTaxaCompra();
+                double taxaVenda = investidor.getCarteira().getEthereum().getTaxaVenda();
                 
-                double valorCotado = investidor.getCarteira().getEthereum().cotarCompra(valor, taxaCompra);
+                double valorCotado = investidor.getCarteira().getEthereum().cotarCompra(valor, taxaVenda);
 
                 if(valorEthereum == 0){
                     JOptionPane.showMessageDialog(view, "Por favor atualize a cotação antes");

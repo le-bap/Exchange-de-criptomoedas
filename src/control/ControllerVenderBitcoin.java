@@ -35,9 +35,9 @@ public class ControllerVenderBitcoin {
                 
                 double valorBitcoin = investidor.getCarteira().getBitcoin().getValor();
                 
-                double taxaCompra = investidor.getCarteira().getBitcoin().getTaxaCompra();
+                double taxaVenda = investidor.getCarteira().getBitcoin().getTaxaVenda();
                 
-                double valorCotado = investidor.getCarteira().getBitcoin().cotarCompra(valor, taxaCompra);
+                double valorCotado = investidor.getCarteira().getBitcoin().cotarCompra(valor, taxaVenda);
                 
                 if(valorBitcoin == 0){
                     JOptionPane.showMessageDialog(view, "Por favor atualize a cotação antes");
