@@ -27,4 +27,4 @@ id_pessoa int not null
 
 INSERT INTO public.usuario(
 	id, nome, cpf, senha, reais, ripple, ethereum, bitcoin)
-	VALUES ('2', 'Prof Gabriela', '12345678910', '123456', 0, 0, 0, 0);
+	VALUES ('1', 'Prof Gabriela', '12345678910', '123456', 0, 0, 0, 0);
