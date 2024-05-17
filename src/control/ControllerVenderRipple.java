@@ -5,6 +5,7 @@ import DAO.UsuarioDAO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import model.Investidor;
 import view.VenderRipple;
@@ -32,7 +33,8 @@ public class ControllerVenderRipple {
             if (res.next()){
                 double ripple = res.getDouble("ripple");
                 double reais = res.getDouble("reais");
-
+                double bitcoin = res.getDouble("bitcoin");
+                double ethereum = res.getDouble("ethereum");
                 double valorRipple = investidor.getCarteira().getRipple().getValor();
 
                 double taxaVenda = investidor.getCarteira().getRipple().getTaxaVenda();
@@ -50,7 +52,13 @@ public class ControllerVenderRipple {
                         dao.atualizarRipple(investidor, saldoRipple);
 
                         JOptionPane.showMessageDialog(view, "Venda efetuada!");
-                        conn.close();
+                        Date data = new Date();
+                        ResultSet res2 = dao.acharID(investidor);
+                        if (res2.next()){
+                            int id = res2.getInt("id");
+                            dao.extrato(investidor, data, true, valorCotado, valorRipple, "Ripple", saldoReais, bitcoin, ethereum, saldoRipple);
+                            conn.close();
+                        }
                     }
                     else{
                         JOptionPane.showMessageDialog(view, "Não há ripples suficientes"

@@ -6,6 +6,7 @@ import DAO.UsuarioDAO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import model.Investidor;
 import view.VenderBitcoin;
@@ -33,8 +34,9 @@ public class ControllerVenderEthereum {
             ResultSet res = dao.consultar(investidor);
             if (res.next()){
                 double ethereum = res.getDouble("ethereum");
-
                 double reais = res.getDouble("reais");
+                double ripple = res.getDouble("ripple");
+                double bitcoin = res.getDouble("bitcoin");
                 
                 double valorEthereum = investidor.getCarteira().getEthereum().getValor();
                 
@@ -53,7 +55,14 @@ public class ControllerVenderEthereum {
                         dao.atualizarEthereum(investidor, saldoEthereum);
 
                         JOptionPane.showMessageDialog(view, "Venda efetuada!");
-                        conn.close();
+                        
+                        Date data = new Date();
+                        ResultSet res2 = dao.acharID(investidor);
+                        if (res2.next()){
+                            int id = res2.getInt("id");
+                            dao.extrato(investidor, data, true, valorCotado, valorEthereum, "Ethereum", saldoReais, bitcoin, saldoEthereum, ripple);
+                            conn.close();
+                        }
                     }
                     else{
                         JOptionPane.showMessageDialog(view, "Não há ethereuns suficientes"

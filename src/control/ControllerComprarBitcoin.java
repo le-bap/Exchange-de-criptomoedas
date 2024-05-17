@@ -53,11 +53,12 @@ public class ControllerComprarBitcoin {
                         double saldoReal = reais - valorCotado;
                         dao.atualizarReais(investidor, saldoReal);
                         JOptionPane.showMessageDialog(view, "Compra efetuada!");
+                        
                         Date data = new Date();
                         ResultSet res2 = dao.acharID(investidor);
                         if (res2.next()){
                             int id = res2.getInt("id");
-                            dao.extrato(investidor, data, false, valorCotado, valorBitcoin, "bitcoin", reais, (valorDigitado + bitcoin), ethereum, ripple);
+                            dao.extrato(investidor, data, false, valorCotado, valorBitcoin, "Bitcoin", reais, (valorDigitado + bitcoin), ethereum, ripple);
                             conn.close();
                         }
                     }

@@ -56,7 +56,7 @@ public class ControllerComprarEthereum {
                         ResultSet res2 = dao.acharID(investidor);
                         if (res2.next()){
                             int id = res2.getInt("id");
-                            dao.extrato(investidor, data, false, valorCotado, valorEthereum, "ethereum", reais, bitcoin, (valorDigitado + ethereum), ripple);
+                            dao.extrato(investidor, data, false, valorCotado, valorEthereum, "Ethereum", reais, bitcoin, (valorDigitado + ethereum), ripple);
                             conn.close();
                         }
                     }
