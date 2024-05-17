@@ -280,7 +280,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btSaldoActionPerformed
 
     private void btExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExtratoActionPerformed
-        // TODO add your handling code here:
+        control.extrato();
     }//GEN-LAST:event_btExtratoActionPerformed
 
     private void btDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDepositarActionPerformed

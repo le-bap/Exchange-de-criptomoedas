@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import model.Investidor;
 import view.Atualizar;
 import view.Comprar;
+import view.ConsultarExtrato;
 import view.ConsultarSaldo;
 import view.Depositar;
 import view.Menu;
@@ -188,6 +189,33 @@ public class ControllerMenu {
 
                         Atualizar a = new Atualizar(investidor);
                         a.setVisible(true);
+                    }else {
+                        JOptionPane.showMessageDialog(null, "Senha incorreta.");
+                    }
+                }
+            } catch(SQLException e) {
+                JOptionPane.showMessageDialog(null, "Erro de conexão");
+            }
+        } 
+    }
+    
+    public void extrato(){
+         String senha = JOptionPane.showInputDialog(null, "Para "
+                 + "prosseguir, digite sua senha novamente:",
+                "Verificar Senha", JOptionPane.PLAIN_MESSAGE);
+
+        if (senha != null) {
+            Conexao conexao = new Conexao();
+            try{
+                Connection conn = conexao.getConnection();
+                UsuarioDAO dao = new UsuarioDAO(conn);
+                ResultSet res = dao.consultar(investidor);
+                if (res.next()){
+                    if(senha.equals(res.getString("senha"))){
+                        JOptionPane.showMessageDialog(null, "Senha confirmada!");
+
+                        ConsultarExtrato e = new ConsultarExtrato(investidor);
+                        e.setVisible(true);
                     }else {
                         JOptionPane.showMessageDialog(null, "Senha incorreta.");
                     }
